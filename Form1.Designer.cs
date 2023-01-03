@@ -54,6 +54,7 @@
       this.btnSelCarpeta.TabIndex = 1;
       this.btnSelCarpeta.Text = "Seleccionar";
       this.btnSelCarpeta.UseVisualStyleBackColor = true;
+      this.btnSelCarpeta.Click += new System.EventHandler(this.btnSelCarpeta_Click);
       // 
       // pathCarpetaXLSX
       // 
@@ -78,6 +79,7 @@
       this.btnSeleccionarDiccionario.TabIndex = 4;
       this.btnSeleccionarDiccionario.Text = "Seleccionar";
       this.btnSeleccionarDiccionario.UseVisualStyleBackColor = true;
+      this.btnSeleccionarDiccionario.Click += new System.EventHandler(this.btnSeleccionarDiccionario_Click);
       // 
       // pathDiccionario
       // 
@@ -103,8 +105,9 @@
       this.btnComenzar.TabIndex = 7;
       this.btnComenzar.Text = "Comenzar";
       this.btnComenzar.UseVisualStyleBackColor = true;
+      this.btnComenzar.Click += new System.EventHandler(this.btnComenzar_Click);
       // 
-      // frmDepuradorVTVCABA
+      // Form1
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -117,7 +120,7 @@
       this.Controls.Add(this.pathCarpetaXLSX);
       this.Controls.Add(this.btnSelCarpeta);
       this.Controls.Add(this.label1);
-      this.Name = "frmDepuradorVTVCABA";
+      this.Name = "Form1";
       this.Text = "Depurador VTV CABA";
       this.ResumeLayout(false);
       this.PerformLayout();
