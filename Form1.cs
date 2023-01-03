@@ -51,6 +51,14 @@ namespace DepuradorVTVCABA
 
     private void btnComenzar_Click(object sender, EventArgs e)
     {
+      string linea = "";
+      List<string> Diccionario = new List<string>();
+
+      StreamReader sr = new StreamReader(pathDiccionario.Text);
+      while ((linea = sr.ReadLine()) != null)
+      {
+        Diccionario.Add(linea);
+      }
       
     }
   }
