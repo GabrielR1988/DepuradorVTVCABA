@@ -1,63 +1,63 @@
-﻿Defectos de sujecion en placas dominio
+﻿DEFECTOS DE SUJECION EN PLACAS DOMINIO
 FAROS FRONTALES
-Agarre del acompañante
-Luces de freno
-Manillar
-Ruedas
-Neumaticos
-Guardabarros
-Contaminacion
-Silenciador
-Caño de escape
-Araña de suspension
-Paragolpes
-Suspencion
-Amortiguadores
-Perdida de aceite
-Perdida de combustible
-Luneta
-Cristales
-Frenos
-visibilidad a traves de luneta
-Cubrecadena
-Freno de servicio
-Parabrisas: visibilidad
-Polarizados
-tensores suspension
-Luz baja
-Tren delantero
-Paragolpe
-Faron no homologados
-Espejo retrovisor
-Espejos retrovisores
-Guardabarros
-Freno
-Barras de direccion
-Tren delantero
-Tren trasero
-Parrilla de suspencion
-Freno estacionamiento
-Dominio trasero despintado
-Dominio delantero despintado
-Faros antireglamentarios
-Extremo de direccion
-Certificado de GNC
-Parrilla/Brazo/Buje
-Rotula
-Luz alta
-Paragolpes
-Matafuego vencido
-Bateria
-Bornes en mal estado
-Faros frontales
-Alineacion
-Ralenti acelerado
-Bocina
-Baul
-Capot
-Luz de posicion
-Luz de patente
-Luz de giro
-Luces de giro
-zocalos
-estribos
+AGARRE DEL ACOMPAÑANTE
+LUCES DE FRENO
+MANILLAR
+RUEDAS
+NEUMATICOS
+GUARDABARROS
+CONTAMINACION
+SILENCIADOR
+CAÑO DE ESCAPE
+ARAÑA DE SUSPENSION
+PARAGOLPES
+SUSPENCION
+AMORTIGUADORES
+PERDIDA DE ACEITE
+PERDIDA DE COMBUSTIBLE
+LUNETA
+CRISTALES
+FRENOS
+VISIBILIDAD A TRAVES DE LUNETA
+CUBRECADENA
+FRENO DE SERVICIO
+PARABRISAS: VISIBILIDAD
+POLARIZADOS
+TENSORES SUSPENSION
+LUZ BAJA
+TREN DELANTERO
+PARAGOLPE
+FARON NO HOMOLOGADOS
+ESPEJO RETROVISOR
+ESPEJOS RETROVISORES
+GUARDABARROS
+FRENO
+BARRAS DE DIRECCION
+TREN DELANTERO
+TREN TRASERO
+PARRILLA DE SUSPENCION
+FRENO ESTACIONAMIENTO
+DOMINIO TRASERO DESPINTADO
+DOMINIO DELANTERO DESPINTADO
+FAROS ANTIREGLAMENTARIOS
+EXTREMO DE DIRECCION
+CERTIFICADO DE GNC
+PARRILLA/BRAZO/BUJE
+ROTULA
+LUZ ALTA
+PARAGOLPES
+MATAFUEGO VENCIDO
+BATERIA
+BORNES EN MAL ESTADO
+FAROS FRONTALES
+ALINEACION
+RALENTI ACELERADO
+BOCINA
+BAUL
+CAPOT
+LUZ DE POSICION
+LUZ DE PATENTE
+LUZ DE GIRO
+LUCES DE GIRO
+ZOCALOS
+ESTRIBOS

@@ -81,17 +81,21 @@ namespace DepuradorVTVCABA
       {
         SLDocument observaciones = new SLDocument(listaDeArchivos[i]);
         SLDocument resultado = new SLDocument();
+        
+        SLDocument Log = new SLDocument();
         SLStyle style = new SLStyle();
         style.FormatCode = "dd/mm/yyyy";
         resultado.SetColumnStyle(4, style);
-        //SLTextImportOptions tio = new SLTextImportOptions();
-        //tio.SetColumnFormat(2,SLTextImportColumnFormatValues.DateDMY);
+        
         DataTable dt = new DataTable();
         dt.Columns.Add("dominio",typeof(string));
         dt.Columns.Add("planta",typeof(string));
         dt.Columns.Add("motivo",typeof(string));
         dt.Columns.Add("fecha",typeof(DateTime));
         dt.Columns.Add("observaciones",typeof(string));
+        
+        DataTable logErrores = new DataTable();
+        logErrores.Columns.Add("errores", typeof(string));
 
         string prueba1 = observaciones.GetCellValueAsString(cantidadfilasobservaciones, 1);
 
@@ -128,6 +132,7 @@ namespace DepuradorVTVCABA
           if (contador == 0)
           {
             lstLog.Items.Add(listaDeArchivos[i] + ", fila " + j + " no encontro coincidencias");
+            logErrores.Rows.Add(listaDeArchivos[i] + ", fila " + j + " no encontro coincidencias");
             texto = "-";
             cinco = texto;
           }
@@ -143,39 +148,14 @@ namespace DepuradorVTVCABA
         }
         
         resultado.ImportDataTable(1,1,dt,false);
+        Log.ImportDataTable(1,1,logErrores,false);
         
         resultado.SaveAs(listaDeArchivos[0].Replace(".xlsx","-out.xlsx"));
-        
-        /*while (!string.IsNullOrEmpty(observaciones.GetCellValueAsString(filaobservaciones,5)))
-        {
-          foreach (var cadena in Diccionario)
-          {
-            if (observaciones.GetCellValueAsString(filaobservaciones, 5).Contains(cadena))
-            {
-              texto = texto + cadena + ", ";
-              contador++;
-            }
-          }
-
-          if (contador == 0)
-          {
-            lstLog.Items.Add(listaDeArchivos[i] + ", fila " + filaobservaciones + " no encontro coincidencias");
-          }
-          
-          observaciones.SetCellValue(filaobservaciones, 5, texto);
-          filaobservaciones++;
-          contador = 0;
-          texto = "";
-        }*/
-
-        //observaciones.SaveAs(listaDeArchivos[i].Replace(".xlsx","-out.xlsx"));
-        
-        //observaciones.SaveAs(listaDeArchivos[i].Replace(".xlsx","-out.csv"));
-        
+        Log.SaveAs(listaDeArchivos[0].Replace(".xlsx","-err.xlsx"));
         observaciones.CloseWithoutSaving();
-        
-      }
 
+      }
+      
       MessageBox.Show("Al fin termine");
     }
   }
