@@ -45,6 +45,13 @@ namespace DepuradorVTVCABA
       pathCarpetaXLSX.Text = seleccionarCarpeta.SelectedPath;
 
       revisarCarpeta(pathCarpetaXLSX.Text);
+      
+      string[] listaDeArchivos = Directory.GetFiles(pathCarpetaXLSX.Text,"*.xlsx");
+      
+      foreach (var archivo in listaDeArchivos)
+      {
+        lstLog.Items.Add(archivo);
+      }
     }
 
     private void btnSeleccionarDiccionario_Click(object sender, EventArgs e)
@@ -131,7 +138,6 @@ namespace DepuradorVTVCABA
           
           if (contador == 0)
           {
-            lstLog.Items.Add(listaDeArchivos[i] + ", fila " + j + " no encontro coincidencias");
             logErrores.Rows.Add(listaDeArchivos[i] + ", fila " + j + " no encontro coincidencias");
             texto = "-";
             cinco = texto;
@@ -150,8 +156,8 @@ namespace DepuradorVTVCABA
         resultado.ImportDataTable(1,1,dt,false);
         Log.ImportDataTable(1,1,logErrores,false);
         
-        resultado.SaveAs(listaDeArchivos[0].Replace(".xlsx","-out.xlsx"));
-        Log.SaveAs(listaDeArchivos[0].Replace(".xlsx","-err.xlsx"));
+        resultado.SaveAs(listaDeArchivos[i].Replace(".xlsx","-out.xlsx"));
+        Log.SaveAs(listaDeArchivos[i].Replace(".xlsx","-err.xlsx"));
         observaciones.CloseWithoutSaving();
 
       }
