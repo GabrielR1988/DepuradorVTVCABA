@@ -8,6 +8,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using SpreadsheetLight;
+using DocumentFormat.OpenXml;
+using System.IO.Packaging;
+using System.Runtime;
+using SpreadsheetLight.Drawing;
 
 namespace DepuradorVTVCABA
 {
@@ -52,6 +57,16 @@ namespace DepuradorVTVCABA
     private void btnComenzar_Click(object sender, EventArgs e)
     {
       string linea = "";
+      string texto = "";
+      int contador = 0;
+      int filaobservaciones = 1;
+      int columnaobservaciones = 1;
+      int cantidadfilasobservaciones = 1;
+      string uno = "";
+      string dos = "";
+      string tres = "";
+      DateTime cuatro = default;
+      string cinco = "";
       List<string> Diccionario = new List<string>();
 
       StreamReader sr = new StreamReader(pathDiccionario.Text);
@@ -60,6 +75,108 @@ namespace DepuradorVTVCABA
         Diccionario.Add(linea);
       }
       
+      string[] listaDeArchivos = Directory.GetFiles(pathCarpetaXLSX.Text,"*.xlsx");
+
+      for (int i = 0; i < listaDeArchivos.Length; i++)
+      {
+        SLDocument observaciones = new SLDocument(listaDeArchivos[i]);
+        SLDocument resultado = new SLDocument();
+        SLStyle style = new SLStyle();
+        style.FormatCode = "dd/mm/yyyy";
+        resultado.SetColumnStyle(4, style);
+        //SLTextImportOptions tio = new SLTextImportOptions();
+        //tio.SetColumnFormat(2,SLTextImportColumnFormatValues.DateDMY);
+        DataTable dt = new DataTable();
+        dt.Columns.Add("dominio",typeof(string));
+        dt.Columns.Add("planta",typeof(string));
+        dt.Columns.Add("motivo",typeof(string));
+        dt.Columns.Add("fecha",typeof(DateTime));
+        dt.Columns.Add("observaciones",typeof(string));
+
+        string prueba1 = observaciones.GetCellValueAsString(cantidadfilasobservaciones, 1);
+
+        while (!string.IsNullOrEmpty(observaciones.GetCellValueAsString(cantidadfilasobservaciones,1)))
+        {
+          cantidadfilasobservaciones++;
+        }
+
+        for (int j = 1; j < cantidadfilasobservaciones; j++)
+        {
+          for (int k = 1; k <= 5; k++)
+          {
+            switch (k)
+            {
+              case 1: uno = observaciones.GetCellValueAsString(j, k);
+                break;
+              case 2: dos = observaciones.GetCellValueAsString(j, k);
+                break;
+              case 3: tres = observaciones.GetCellValueAsString(j, k);
+                break;
+              case 4: cuatro =observaciones.GetCellValueAsDateTime(j, k);
+                break;
+              case 5: foreach (var cadena in Diccionario)
+              { 
+                if (observaciones.GetCellValueAsString(j, 5).Contains(cadena))
+                {
+                  texto = texto + cadena + ", ";
+                  contador++;
+                }
+              } break;
+            }
+          }
+          
+          if (contador == 0)
+          {
+            lstLog.Items.Add(listaDeArchivos[i] + ", fila " + j + " no encontro coincidencias");
+            texto = "-";
+            cinco = texto;
+          }
+
+          if (contador > 0)
+          {
+            cinco = texto.Remove(texto.Length - 2, 2); 
+          }
+          
+          contador = 0;
+          texto = "";
+          dt.Rows.Add(uno,dos,tres,cuatro,cinco);
+        }
+        
+        resultado.ImportDataTable(1,1,dt,false);
+        
+        resultado.SaveAs(listaDeArchivos[0].Replace(".xlsx","-out.xlsx"));
+        
+        /*while (!string.IsNullOrEmpty(observaciones.GetCellValueAsString(filaobservaciones,5)))
+        {
+          foreach (var cadena in Diccionario)
+          {
+            if (observaciones.GetCellValueAsString(filaobservaciones, 5).Contains(cadena))
+            {
+              texto = texto + cadena + ", ";
+              contador++;
+            }
+          }
+
+          if (contador == 0)
+          {
+            lstLog.Items.Add(listaDeArchivos[i] + ", fila " + filaobservaciones + " no encontro coincidencias");
+          }
+          
+          observaciones.SetCellValue(filaobservaciones, 5, texto);
+          filaobservaciones++;
+          contador = 0;
+          texto = "";
+        }*/
+
+        //observaciones.SaveAs(listaDeArchivos[i].Replace(".xlsx","-out.xlsx"));
+        
+        //observaciones.SaveAs(listaDeArchivos[i].Replace(".xlsx","-out.csv"));
+        
+        observaciones.CloseWithoutSaving();
+        
+      }
+
+      MessageBox.Show("Al fin termine");
     }
   }
 }
