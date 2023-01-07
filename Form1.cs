@@ -64,11 +64,14 @@ namespace DepuradorVTVCABA
     private void btnComenzar_Click(object sender, EventArgs e)
     {
       string linea = "";
+      bool flag = false;
       string texto = "";
       int contador = 0;
       int filaobservaciones = 1;
       int columnaobservaciones = 1;
       int cantidadfilasobservaciones = 1;
+      decimal ValorProgress = 1;
+      decimal ValorProgress2 = 0;
       string uno = "";
       string dos = "";
       string tres = "";
@@ -126,7 +129,7 @@ namespace DepuradorVTVCABA
               case 4: cuatro =observaciones.GetCellValueAsDateTime(j, k);
                 break;
               case 5: foreach (var cadena in Diccionario)
-              { 
+              {
                 if (observaciones.GetCellValueAsString(j, 5).Contains(cadena))
                 {
                   texto = texto + cadena + ", ";
@@ -135,8 +138,14 @@ namespace DepuradorVTVCABA
               } break;
             }
           }
-          
-          if (contador == 0)
+
+          if (contador == 0 && observaciones.GetCellValueAsString(j, 5) == "-")
+          {
+            //logErrores.Rows.Add(listaDeArchivos[i] + ", fila " + j + " no encontro coincidencias");
+            texto = "-";
+            cinco = texto;
+          }
+          else if (contador == 0)
           {
             logErrores.Rows.Add(listaDeArchivos[i] + ", fila " + j + " no encontro coincidencias");
             texto = "-";
@@ -147,7 +156,7 @@ namespace DepuradorVTVCABA
           {
             cinco = texto.Remove(texto.Length - 2, 2); 
           }
-          
+
           contador = 0;
           texto = "";
           dt.Rows.Add(uno,dos,tres,cuatro,cinco);
@@ -159,9 +168,9 @@ namespace DepuradorVTVCABA
         resultado.SaveAs(listaDeArchivos[i].Replace(".xlsx","-out.xlsx"));
         Log.SaveAs(listaDeArchivos[i].Replace(".xlsx","-err.xlsx"));
         observaciones.CloseWithoutSaving();
-
+        
       }
-      
+
       MessageBox.Show("Al fin termine");
     }
   }
