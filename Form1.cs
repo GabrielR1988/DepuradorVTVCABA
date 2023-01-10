@@ -147,7 +147,7 @@ namespace DepuradorVTVCABA
           }
           else if (contador == 0)
           {
-            logErrores.Rows.Add(listaDeArchivos[i] + ", fila " + j + " no encontro coincidencias");
+            logErrores.Rows.Add(listaDeArchivos[i] + ", fila " + j + " no encontro coincidencias" + " " + observaciones.GetCellValueAsString(j, 5));
             texto = "-";
             cinco = texto;
           }
@@ -168,6 +168,8 @@ namespace DepuradorVTVCABA
         resultado.SaveAs(listaDeArchivos[i].Replace(".xlsx","-out.xlsx"));
         Log.SaveAs(listaDeArchivos[i].Replace(".xlsx","-err.xlsx"));
         observaciones.CloseWithoutSaving();
+        dt.Dispose();
+        logErrores.Dispose();
         
       }
 
