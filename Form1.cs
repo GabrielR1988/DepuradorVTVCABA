@@ -130,7 +130,11 @@ namespace DepuradorVTVCABA
                 break;
               case 5: foreach (var cadena in Diccionario)
               {
-                if (observaciones.GetCellValueAsString(j, 5).Contains(cadena))
+                if (observaciones.GetCellValueAsString(j, 5).Contains(cadena) && texto.Contains(cadena))
+                {
+                  contador++;
+                }
+                else if (observaciones.GetCellValueAsString(j,5).Contains(cadena))
                 {
                   texto = texto + cadena + ", ";
                   contador++;
