@@ -139,6 +139,10 @@ namespace DepuradorVTVCABA
                   texto = texto + cadena + ", ";
                   contador++;
                 }
+                /*else if (observaciones.GetCellValueAsString(j, 5) == "-")
+                {
+                  
+                }*/
               } break;
             }
           }
@@ -152,7 +156,7 @@ namespace DepuradorVTVCABA
           else if (contador == 0)
           {
             logErrores.Rows.Add(listaDeArchivos[i] + ", fila " + j + " no encontro coincidencias" + " " + observaciones.GetCellValueAsString(j, 5));
-            texto = "-";
+            texto = observaciones.GetCellValueAsString(j, 5);
             cinco = texto;
           }
 
