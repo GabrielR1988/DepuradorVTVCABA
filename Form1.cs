@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -77,7 +78,10 @@ namespace DepuradorVTVCABA
       string tres = "";
       DateTime cuatro = default;
       string cinco = "";
+      string seis = "";
       List<string> Diccionario = new List<string>();
+      Stopwatch sw = new Stopwatch();
+      sw.Start();
 
       StreamReader sr = new StreamReader(pathDiccionario.Text);
       while ((linea = sr.ReadLine()) != null)
@@ -102,12 +106,13 @@ namespace DepuradorVTVCABA
         dt.Columns.Add("planta",typeof(string));
         dt.Columns.Add("motivo",typeof(string));
         dt.Columns.Add("fecha",typeof(DateTime));
-        dt.Columns.Add("observaciones",typeof(string));
+        dt.Columns.Add("observaciones Orig",typeof(string));
+        dt.Columns.Add("observaciones Resul",typeof(string));
         
         DataTable logErrores = new DataTable();
         logErrores.Columns.Add("errores", typeof(string));
 
-        string prueba1 = observaciones.GetCellValueAsString(cantidadfilasobservaciones, 1);
+        //string prueba1 = observaciones.GetCellValueAsString(cantidadfilasobservaciones, 1);
 
         while (!string.IsNullOrEmpty(observaciones.GetCellValueAsString(cantidadfilasobservaciones,1)))
         {
@@ -128,46 +133,52 @@ namespace DepuradorVTVCABA
                 break;
               case 4: cuatro =observaciones.GetCellValueAsDateTime(j, k);
                 break;
-              case 5: foreach (var cadena in Diccionario)
-              {
-                if (observaciones.GetCellValueAsString(j, 5).Contains(cadena) && texto.Contains(cadena))
+              case 5:
+                if (observaciones.GetCellValueAsString(j,k) != "-")
                 {
-                  contador++;
+                  foreach (var cadena in Diccionario)
+                  {
+                    if (observaciones.GetCellValueAsString(j, k).Contains(cadena) && texto.Contains(cadena))
+                    {
+                      contador++;
+                    }
+                    else if (observaciones.GetCellValueAsString(j,k).Contains(cadena))
+                    {
+                      texto = texto + cadena + ", ";
+                      contador++;
+                    }
+                    cinco = observaciones.GetCellValueAsString(j, k);
+                  }
                 }
-                else if (observaciones.GetCellValueAsString(j,5).Contains(cadena))
+                else
                 {
-                  texto = texto + cadena + ", ";
-                  contador++;
+                  cinco = observaciones.GetCellValueAsString(j, k);
                 }
-                /*else if (observaciones.GetCellValueAsString(j, 5) == "-")
-                {
-                  
-                }*/
-              } break;
+                break;
             }
           }
+          
 
           if (contador == 0 && observaciones.GetCellValueAsString(j, 5) == "-")
           {
-            //logErrores.Rows.Add(listaDeArchivos[i] + ", fila " + j + " no encontro coincidencias");
-            texto = "-";
-            cinco = texto;
+            seis = observaciones.GetCellValueAsString(j, 5);
+            //cinco = texto;
           }
           else if (contador == 0)
           {
             logErrores.Rows.Add(listaDeArchivos[i] + ", fila " + j + " no encontro coincidencias" + " " + observaciones.GetCellValueAsString(j, 5));
-            texto = observaciones.GetCellValueAsString(j, 5);
-            cinco = texto;
+            seis = observaciones.GetCellValueAsString(j, 5);
+            //cinco = texto;
           }
 
           if (contador > 0)
           {
-            cinco = texto.Remove(texto.Length - 2, 2); 
+            seis = texto.Remove(texto.Length - 2, 2); 
           }
 
           contador = 0;
           texto = "";
-          dt.Rows.Add(uno,dos,tres,cuatro,cinco);
+          dt.Rows.Add(uno,dos,tres,cuatro,cinco,seis);
         }
         
         resultado.ImportDataTable(1,1,dt,false);
@@ -181,7 +192,11 @@ namespace DepuradorVTVCABA
         
       }
 
-      MessageBox.Show("Al fin termine");
+      TimeSpan ts = sw.Elapsed;
+
+      MessageBox.Show("Al fin termine " + ts,ToString());
+      
+      Application.Exit();
     }
   }
 }
