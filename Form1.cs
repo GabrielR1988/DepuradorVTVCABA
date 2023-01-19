@@ -25,7 +25,7 @@ namespace DepuradorVTVCABA
     }
     
     //CEsta funcion evalua que dentro de la carpeta seleccionada existan archivos compatibles
-    private string revisarCarpeta(string path)
+    private string RevisarCarpeta(string path)
     {
       string[] listaDeArchivos = Directory.GetFiles(path,"*.xlsx");
 
@@ -47,7 +47,7 @@ namespace DepuradorVTVCABA
       seleccionarCarpeta.ShowDialog();
       pathCarpetaXLSX.Text = seleccionarCarpeta.SelectedPath;
 
-      revisarCarpeta(pathCarpetaXLSX.Text);
+      RevisarCarpeta(pathCarpetaXLSX.Text);
       
       string[] listaDeArchivos = Directory.GetFiles(pathCarpetaXLSX.Text,"*.xlsx");
       
@@ -68,21 +68,16 @@ namespace DepuradorVTVCABA
     private void btnComenzar_Click(object sender, EventArgs e)
     {
       string linea = "";
-      bool flag = false;
       string texto = "";
       int contador = 0;
-      int filaobservaciones = 1;
-      int columnaobservaciones = 1;
       int cantidadfilasobservaciones = 1;
-      decimal ValorProgress = 1;
-      decimal ValorProgress2 = 0;
-      string uno = "";
-      string dos = "";
-      string tres = "";
-      DateTime cuatro = default;
-      string cinco = "";
-      string seis = "";
-      List<string> Diccionario = new List<string>();
+      string coluno = "";
+      string coldos = "";
+      string coltres = "";
+      DateTime colcuatro = default;
+      string colcinco = "";
+      string colseis = "";
+      List<string> diccionario = new List<string>();
       
       /*Se crea el stopwatch para ver el tiempo de ejecucion del programa, no tiene relevancia fuera de la fase de testeo
       Stopwatch sw = new Stopwatch();
@@ -93,7 +88,7 @@ namespace DepuradorVTVCABA
       StreamReader sr = new StreamReader(pathDiccionario.Text);
       while ((linea = sr.ReadLine()) != null)
       {
-        Diccionario.Add(linea);
+        diccionario.Add(linea);
       }
       
       //Se completa el array con los nombre de los archivos
@@ -137,19 +132,19 @@ namespace DepuradorVTVCABA
           {
             switch (k)
             {
-              case 1: uno = observaciones.GetCellValueAsString(j, k);
+              case 1: coluno = observaciones.GetCellValueAsString(j, k);
                 break;
-              case 2: dos = observaciones.GetCellValueAsString(j, k);
+              case 2: coldos = observaciones.GetCellValueAsString(j, k);
                 break;
-              case 3: tres = observaciones.GetCellValueAsString(j, k);
+              case 3: coltres = observaciones.GetCellValueAsString(j, k);
                 break;
-              case 4: cuatro =observaciones.GetCellValueAsDateTime(j, k);
+              case 4: colcuatro =observaciones.GetCellValueAsDateTime(j, k);
                 break;
               case 5:
                 //Solo en esta opcion va a realizar un analisis con el diccionario en el caso de que el valor del campo no sea "-" o "IF-20"
                 if (observaciones.GetCellValueAsString(j,k) != "-" && observaciones.GetCellValueAsString(j,5).Contains("IF-20") == false)
                 {
-                  foreach (var cadena in Diccionario)
+                  foreach (var cadena in diccionario)
                   {
                     if (observaciones.GetCellValueAsString(j, k).Contains(cadena) && texto.Contains(cadena)) //Revisa que el valor ya no este en el string resultante "texto"
                     {
@@ -160,12 +155,12 @@ namespace DepuradorVTVCABA
                       texto = texto + cadena + ", ";
                       contador++;
                     }
-                    cinco = observaciones.GetCellValueAsString(j, k);
+                    colcinco = observaciones.GetCellValueAsString(j, k);
                   }
                 }
                 else
                 {
-                  cinco = observaciones.GetCellValueAsString(j, k);
+                  colcinco = observaciones.GetCellValueAsString(j, k);
                 }
                 break;
             }
@@ -174,7 +169,7 @@ namespace DepuradorVTVCABA
           //La variable "contador" nos sirve para saber si hay coincidencias en el diccionario
           if (contador == 0)
           {
-            seis = observaciones.GetCellValueAsString(j, 5);
+            colseis = observaciones.GetCellValueAsString(j, 5);
           }
           if (contador == 0 && observaciones.GetCellValueAsString(j,5).Contains("IF-20") == false && observaciones.GetCellValueAsString(j,5) != "-")
           {
@@ -182,11 +177,11 @@ namespace DepuradorVTVCABA
           }
           if (contador > 0)
           {
-            seis = texto.Remove(texto.Length - 2, 2); 
+            colseis = texto.Remove(texto.Length - 2, 2); 
           }
           contador = 0;
           texto = "";
-          dt.Rows.Add(uno,dos,tres,cuatro,cinco,seis);
+          dt.Rows.Add(coluno,coldos,coltres,colcuatro,colcinco,colseis);
         }
         
         //Se importan los resultados al datatable del log de errores y del resultados, se guardan los cambios en los archivos nuevos, se cierra el libro de excel y se vacian los datos de la tabla
@@ -205,7 +200,7 @@ namespace DepuradorVTVCABA
       //MessageBox.Show("Al fin termine " + ts,ToString());
       
       
-      MessageBox.Show("Procedimiento finalizado");
+      MessageBox.Show(@"Procedimiento finalizado");
       
       Application.Exit();
     }
