@@ -134,7 +134,7 @@ namespace DepuradorVTVCABA
               case 4: cuatro =observaciones.GetCellValueAsDateTime(j, k);
                 break;
               case 5:
-                if (observaciones.GetCellValueAsString(j,k) != "-")
+                if (observaciones.GetCellValueAsString(j,k) != "-" && observaciones.GetCellValueAsString(j,5).Contains("IF-20") == false)
                 {
                   foreach (var cadena in Diccionario)
                   {
@@ -157,18 +157,15 @@ namespace DepuradorVTVCABA
                 break;
             }
           }
-          
 
-          if (contador == 0 && observaciones.GetCellValueAsString(j, 5) == "-")
+          if (contador == 0)
           {
             seis = observaciones.GetCellValueAsString(j, 5);
-            //cinco = texto;
           }
-          else if (contador == 0)
+          
+          if (contador == 0 && observaciones.GetCellValueAsString(j,5).Contains("IF-20") == false && observaciones.GetCellValueAsString(j,5) != "-")
           {
             logErrores.Rows.Add(listaDeArchivos[i] + ", fila " + j + " no encontro coincidencias" + " " + observaciones.GetCellValueAsString(j, 5));
-            seis = observaciones.GetCellValueAsString(j, 5);
-            //cinco = texto;
           }
 
           if (contador > 0)
