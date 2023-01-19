@@ -4,8 +4,7 @@
     <projectFile>DepuradorVTVCABA.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f040aec8-83f9-4cb5-9880-8589834e95b9" name="Changes" comment="A pedido del cliente se agrego una sexta columna para guardar el resultado y mantener la original en la columna cinco.&#10;Se corrigio el codigo para que los campos &quot;-&quot; de la columna 5 no sean evaluados y asi aumentar la performance.">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.DepuradorVTVCABA/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DepuradorVTVCABA/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="f040aec8-83f9-4cb5-9880-8589834e95b9" name="Changes" comment="Se termino de ajustar el log de errores para que muestre resultados de interes solamente.&#10;El programa esta completo.&#10;Para la proxima version se modificara el estilo de programacion para que se ajuste a la metodologia asincronica y pueda mejorarse la experiencia del usuario.">
       <change beforePath="$PROJECT_DIR$/Form1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Form1.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -142,7 +141,7 @@
       <workItem from="1673445406151" duration="235000" />
       <workItem from="1673445660191" duration="1858000" />
       <workItem from="1673547259403" duration="1206000" />
-      <workItem from="1673925228345" duration="17835000" />
+      <workItem from="1673925228345" duration="19190000" />
     </task>
     <task id="LOCAL-00001" summary="Diseño de estructura del Form - Completo">
       <created>1672743534791</created>
@@ -214,7 +213,14 @@
       <option name="project" value="LOCAL" />
       <updated>1674066476443</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Se termino de ajustar el log de errores para que muestre resultados de interes solamente.&#10;El programa esta completo.&#10;Para la proxima version se modificara el estilo de programacion para que se ajuste a la metodologia asincronica y pueda mejorarse la experiencia del usuario.">
+      <created>1674152472434</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1674152472434</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -246,6 +252,7 @@
     <MESSAGE value="Se agrego una comprobacion para que no se repitan las palabras en el out" />
     <MESSAGE value="Se decidio que si no se encuentran coincidencias con el diccionario se conserva el string original" />
     <MESSAGE value="A pedido del cliente se agrego una sexta columna para guardar el resultado y mantener la original en la columna cinco.&#10;Se corrigio el codigo para que los campos &quot;-&quot; de la columna 5 no sean evaluados y asi aumentar la performance." />
-    <option name="LAST_COMMIT_MESSAGE" value="A pedido del cliente se agrego una sexta columna para guardar el resultado y mantener la original en la columna cinco.&#10;Se corrigio el codigo para que los campos &quot;-&quot; de la columna 5 no sean evaluados y asi aumentar la performance." />
+    <MESSAGE value="Se termino de ajustar el log de errores para que muestre resultados de interes solamente.&#10;El programa esta completo.&#10;Para la proxima version se modificara el estilo de programacion para que se ajuste a la metodologia asincronica y pueda mejorarse la experiencia del usuario." />
+    <option name="LAST_COMMIT_MESSAGE" value="Se termino de ajustar el log de errores para que muestre resultados de interes solamente.&#10;El programa esta completo.&#10;Para la proxima version se modificara el estilo de programacion para que se ajuste a la metodologia asincronica y pueda mejorarse la experiencia del usuario." />
   </component>
 </project>

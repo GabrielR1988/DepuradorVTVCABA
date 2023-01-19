@@ -23,7 +23,8 @@ namespace DepuradorVTVCABA
     {
       InitializeComponent();
     }
-
+    
+    //CEsta funcion evalua que dentro de la carpeta seleccionada existan archivos compatibles
     private string revisarCarpeta(string path)
     {
       string[] listaDeArchivos = Directory.GetFiles(path,"*.xlsx");
@@ -39,6 +40,7 @@ namespace DepuradorVTVCABA
       
     }
 
+    //Se listan los archivos compatibles si es que existen y los agrega al listbox
     private void btnSelCarpeta_Click(object sender, EventArgs e)
     {
       FolderBrowserDialog seleccionarCarpeta = new FolderBrowserDialog();
@@ -55,6 +57,7 @@ namespace DepuradorVTVCABA
       }
     }
 
+    //Selecciona la ubicacion del diccionario y la muestra en el textbox asociado
     private void btnSeleccionarDiccionario_Click(object sender, EventArgs e)
     {
       OpenFileDialog seleccionarDiccionario = new OpenFileDialog();
@@ -80,27 +83,36 @@ namespace DepuradorVTVCABA
       string cinco = "";
       string seis = "";
       List<string> Diccionario = new List<string>();
+      
+      /*Se crea el stopwatch para ver el tiempo de ejecucion del programa, no tiene relevancia fuera de la fase de testeo
       Stopwatch sw = new Stopwatch();
       sw.Start();
-
+      */
+      
+      //Se lee el diccionario y se agregan las linea a la lista "diccionario"
       StreamReader sr = new StreamReader(pathDiccionario.Text);
       while ((linea = sr.ReadLine()) != null)
       {
         Diccionario.Add(linea);
       }
       
+      //Se completa el array con los nombre de los archivos
       string[] listaDeArchivos = Directory.GetFiles(pathCarpetaXLSX.Text,"*.xlsx");
 
+      //Comienzo de la secuencia de depuracion en la que se van a recorrer todos los archivos del vector "listaDeArchivos"
       for (int i = 0; i < listaDeArchivos.Length; i++)
       {
+        //Haciendo uso de la libreria Spreadsheetlight se crean los objetos para recibir y enviar los resultados
         SLDocument observaciones = new SLDocument(listaDeArchivos[i]);
         SLDocument resultado = new SLDocument();
-        
         SLDocument Log = new SLDocument();
+        
+        //Spreadsheetlight necesita un objeto de la clase SLStyle para darle formato al documento
         SLStyle style = new SLStyle();
         style.FormatCode = "dd/mm/yyyy";
         resultado.SetColumnStyle(4, style);
         
+        //Creamos los objetos DataTable que sirven para recibir los datos procesados
         DataTable dt = new DataTable();
         dt.Columns.Add("dominio",typeof(string));
         dt.Columns.Add("planta",typeof(string));
@@ -111,14 +123,14 @@ namespace DepuradorVTVCABA
         
         DataTable logErrores = new DataTable();
         logErrores.Columns.Add("errores", typeof(string));
-
-        //string prueba1 = observaciones.GetCellValueAsString(cantidadfilasobservaciones, 1);
-
+        
+        //Obtener la cantidad de filas del documento a procesar
         while (!string.IsNullOrEmpty(observaciones.GetCellValueAsString(cantidadfilasobservaciones,1)))
         {
           cantidadfilasobservaciones++;
         }
 
+        //Por cada documento va entrar y obtener los datos de las 4 primeras columnas para volcarlos en el datatable
         for (int j = 1; j < cantidadfilasobservaciones; j++)
         {
           for (int k = 1; k <= 5; k++)
@@ -134,11 +146,12 @@ namespace DepuradorVTVCABA
               case 4: cuatro =observaciones.GetCellValueAsDateTime(j, k);
                 break;
               case 5:
+                //Solo en esta opcion va a realizar un analisis con el diccionario en el caso de que el valor del campo no sea "-" o "IF-20"
                 if (observaciones.GetCellValueAsString(j,k) != "-" && observaciones.GetCellValueAsString(j,5).Contains("IF-20") == false)
                 {
                   foreach (var cadena in Diccionario)
                   {
-                    if (observaciones.GetCellValueAsString(j, k).Contains(cadena) && texto.Contains(cadena))
+                    if (observaciones.GetCellValueAsString(j, k).Contains(cadena) && texto.Contains(cadena)) //Revisa que el valor ya no este en el string resultante "texto"
                     {
                       contador++;
                     }
@@ -158,29 +171,27 @@ namespace DepuradorVTVCABA
             }
           }
 
+          //La variable "contador" nos sirve para saber si hay coincidencias en el diccionario
           if (contador == 0)
           {
             seis = observaciones.GetCellValueAsString(j, 5);
           }
-          
           if (contador == 0 && observaciones.GetCellValueAsString(j,5).Contains("IF-20") == false && observaciones.GetCellValueAsString(j,5) != "-")
           {
             logErrores.Rows.Add(listaDeArchivos[i] + ", fila " + j + " no encontro coincidencias" + " " + observaciones.GetCellValueAsString(j, 5));
           }
-
           if (contador > 0)
           {
             seis = texto.Remove(texto.Length - 2, 2); 
           }
-
           contador = 0;
           texto = "";
           dt.Rows.Add(uno,dos,tres,cuatro,cinco,seis);
         }
         
+        //Se importan los resultados al datatable del log de errores y del resultados, se guardan los cambios en los archivos nuevos, se cierra el libro de excel y se vacian los datos de la tabla
         resultado.ImportDataTable(1,1,dt,false);
         Log.ImportDataTable(1,1,logErrores,false);
-        
         resultado.SaveAs(listaDeArchivos[i].Replace(".xlsx","-out.xlsx"));
         Log.SaveAs(listaDeArchivos[i].Replace(".xlsx","-err.xlsx"));
         observaciones.CloseWithoutSaving();
@@ -189,9 +200,12 @@ namespace DepuradorVTVCABA
         
       }
 
-      TimeSpan ts = sw.Elapsed;
+      //TimeSpan ts = sw.Elapsed;
 
-      MessageBox.Show("Al fin termine " + ts,ToString());
+      //MessageBox.Show("Al fin termine " + ts,ToString());
+      
+      
+      MessageBox.Show("Procedimiento finalizado");
       
       Application.Exit();
     }
