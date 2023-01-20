@@ -4,7 +4,9 @@
     <projectFile>DepuradorVTVCABA.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f040aec8-83f9-4cb5-9880-8589834e95b9" name="Changes" comment="Se agregan los comentarios del codigo">
+    <list default="true" id="f040aec8-83f9-4cb5-9880-8589834e95b9" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.DepuradorVTVCABA/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DepuradorVTVCABA/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Form1.Designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Form1.Designer.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Form1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Form1.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -37,11 +39,14 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/986612f05b444489a8594a7d974f8d4215dc00/0b/18d95499/SLRstType.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/986612f05b444489a8594a7d974f8d4215dc00/15/0ceb0bce/SLDocument.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9b25e913d31d4b8b83ebde8a2012e613286680/03/2944d548/XmlTextReaderImpl.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9b25e913d31d4b8b83ebde8a2012e613286680/51/4e7f4538/NameTable.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9b25e913d31d4b8b83ebde8a2012e613286680/7d/093dd235/MarvinHash.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/edef46c9b2db4b878c98495bfdc516fa568ba8/1e/6ef6f480/Directory.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/edef46c9b2db4b878c98495bfdc516fa568ba8/1f/1f3ea302/ExecutionContextSwitcher.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/edef46c9b2db4b878c98495bfdc516fa568ba8/2d/3a907c74/RuntimeMethodInfo.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/edef46c9b2db4b878c98495bfdc516fa568ba8/52/6f4debb7/Path.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/edef46c9b2db4b878c98495bfdc516fa568ba8/58/48464db6/StringReader.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/edef46c9b2db4b878c98495bfdc516fa568ba8/a8/178c31a5/__Error.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/edef46c9b2db4b878c98495bfdc516fa568ba8/ab/13775bad/String.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/edef46c9b2db4b878c98495bfdc516fa568ba8/b8/c59ef8ae/Dictionary`2.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/edef46c9b2db4b878c98495bfdc516fa568ba8/e3/56d3e1d7/Int32.cs" root0="SKIP_HIGHLIGHTING" />
@@ -141,7 +146,9 @@
       <workItem from="1673445406151" duration="235000" />
       <workItem from="1673445660191" duration="1858000" />
       <workItem from="1673547259403" duration="1206000" />
-      <workItem from="1673925228345" duration="19662000" />
+      <workItem from="1673925228345" duration="20455000" />
+      <workItem from="1674223619218" duration="6427000" />
+      <workItem from="1674235955034" duration="4374000" />
     </task>
     <task id="LOCAL-00001" summary="Diseño de estructura del Form - Completo">
       <created>1672743534791</created>
@@ -227,7 +234,14 @@
       <option name="project" value="LOCAL" />
       <updated>1674153771876</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Se refactorizo el codigo eliminando lineas obsoletas">
+      <created>1674154259094</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1674154259094</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -235,6 +249,17 @@
   </component>
   <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ID_ORDER">
+      <list>
+        <option value="Default.Root" />
+        <option value="Default.Author" />
+        <option value="Default.Date" />
+        <option value="Default.Subject" />
+        <option value="Space.CommitStatus" />
+      </list>
+    </option>
+  </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
@@ -261,25 +286,7 @@
     <MESSAGE value="A pedido del cliente se agrego una sexta columna para guardar el resultado y mantener la original en la columna cinco.&#10;Se corrigio el codigo para que los campos &quot;-&quot; de la columna 5 no sean evaluados y asi aumentar la performance." />
     <MESSAGE value="Se termino de ajustar el log de errores para que muestre resultados de interes solamente.&#10;El programa esta completo.&#10;Para la proxima version se modificara el estilo de programacion para que se ajuste a la metodologia asincronica y pueda mejorarse la experiencia del usuario." />
     <MESSAGE value="Se agregan los comentarios del codigo" />
-    <option name="LAST_COMMIT_MESSAGE" value="Se agregan los comentarios del codigo" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Form1.cs</url>
-          <line>202</line>
-          <properties documentPath="Z:\JetBrains Rider 2022.3.1\Repositorio\DepuradorVTVCABA\Form1.cs" initialLine="202" containingFunctionPresentation="method 'btnComenzar_Click'">
-            <startOffsets>
-              <option value="7652" />
-            </startOffsets>
-            <endOffsets>
-              <option value="7697" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="17" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="Se refactorizo el codigo eliminando lineas obsoletas" />
+    <option name="LAST_COMMIT_MESSAGE" value="Se refactorizo el codigo eliminando lineas obsoletas" />
   </component>
 </project>

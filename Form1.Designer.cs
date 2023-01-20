@@ -65,6 +65,7 @@
       // 
       this.pathCarpetaXLSX.Location = new System.Drawing.Point(12, 38);
       this.pathCarpetaXLSX.Name = "pathCarpetaXLSX";
+      this.pathCarpetaXLSX.ReadOnly = true;
       this.pathCarpetaXLSX.Size = new System.Drawing.Size(760, 20);
       this.pathCarpetaXLSX.TabIndex = 2;
       // 
@@ -91,6 +92,7 @@
       // 
       this.pathDiccionario.Location = new System.Drawing.Point(12, 101);
       this.pathDiccionario.Name = "pathDiccionario";
+      this.pathDiccionario.ReadOnly = true;
       this.pathDiccionario.Size = new System.Drawing.Size(760, 20);
       this.pathDiccionario.TabIndex = 5;
       // 
@@ -130,6 +132,7 @@
       this.BarraProgreso.Size = new System.Drawing.Size(671, 40);
       this.BarraProgreso.Step = 1;
       this.BarraProgreso.TabIndex = 9;
+      this.BarraProgreso.Visible = false;
       // 
       // Form1
       // 

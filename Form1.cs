@@ -24,20 +24,20 @@ namespace DepuradorVTVCABA
       InitializeComponent();
     }
     
-    //CEsta funcion evalua que dentro de la carpeta seleccionada existan archivos compatibles
-    private string RevisarCarpeta(string path)
+    //Esta funcion evalua que dentro de la carpeta seleccionada existan archivos compatibles
+    private bool RevisarCarpeta(string path)
     {
       string[] listaDeArchivos = Directory.GetFiles(path,"*.xlsx");
 
       if (listaDeArchivos.Length == 0)
       {
         btnComenzar.Enabled = false;
-        return "La carpeta no contiene archivos compatibles";
+        pathCarpetaXLSX.Text = "";
+        return false;
       }
 
       btnComenzar.Enabled = true;
-      return "";
-      
+      return true;
     }
 
     //Se listan los archivos compatibles si es que existen y los agrega al listbox
@@ -46,9 +46,14 @@ namespace DepuradorVTVCABA
       FolderBrowserDialog seleccionarCarpeta = new FolderBrowserDialog();
       seleccionarCarpeta.ShowDialog();
       pathCarpetaXLSX.Text = seleccionarCarpeta.SelectedPath;
-
-      RevisarCarpeta(pathCarpetaXLSX.Text);
       
+      while (RevisarCarpeta(pathCarpetaXLSX.Text) == false)
+      {
+          MessageBox.Show("La carpeta no contiene archivos compatibles");
+          seleccionarCarpeta = new FolderBrowserDialog();
+          seleccionarCarpeta.ShowDialog();
+          pathCarpetaXLSX.Text = seleccionarCarpeta.SelectedPath;
+      }
       string[] listaDeArchivos = Directory.GetFiles(pathCarpetaXLSX.Text,"*.xlsx");
       
       foreach (var archivo in listaDeArchivos)
@@ -56,8 +61,6 @@ namespace DepuradorVTVCABA
         lstLog.Items.Add(archivo);
       }
     }
-
-    //Selecciona la ubicacion del diccionario y la muestra en el textbox asociado
     private void btnSeleccionarDiccionario_Click(object sender, EventArgs e)
     {
       OpenFileDialog seleccionarDiccionario = new OpenFileDialog();
@@ -78,18 +81,19 @@ namespace DepuradorVTVCABA
       string colcinco = "";
       string colseis = "";
       List<string> diccionario = new List<string>();
-      
+        
       /*Se crea el stopwatch para ver el tiempo de ejecucion del programa, no tiene relevancia fuera de la fase de testeo
       Stopwatch sw = new Stopwatch();
       sw.Start();
       */
-      
+        
       //Se lee el diccionario y se agregan las linea a la lista "diccionario"
       StreamReader sr = new StreamReader(pathDiccionario.Text);
       while ((linea = sr.ReadLine()) != null)
-      {
+      { 
         diccionario.Add(linea);
       }
+      sr.Close();
       
       //Se completa el array con los nombre de los archivos
       string[] listaDeArchivos = Directory.GetFiles(pathCarpetaXLSX.Text,"*.xlsx");
@@ -101,12 +105,12 @@ namespace DepuradorVTVCABA
         SLDocument observaciones = new SLDocument(listaDeArchivos[i]);
         SLDocument resultado = new SLDocument();
         SLDocument Log = new SLDocument();
-        
+          
         //Spreadsheetlight necesita un objeto de la clase SLStyle para darle formato al documento
         SLStyle style = new SLStyle();
         style.FormatCode = "dd/mm/yyyy";
         resultado.SetColumnStyle(4, style);
-        
+          
         //Creamos los objetos DataTable que sirven para recibir los datos procesados
         DataTable dt = new DataTable();
         dt.Columns.Add("dominio",typeof(string));
@@ -115,10 +119,10 @@ namespace DepuradorVTVCABA
         dt.Columns.Add("fecha",typeof(DateTime));
         dt.Columns.Add("observaciones Orig",typeof(string));
         dt.Columns.Add("observaciones Resul",typeof(string));
-        
+          
         DataTable logErrores = new DataTable();
         logErrores.Columns.Add("errores", typeof(string));
-        
+          
         //Obtener la cantidad de filas del documento a procesar
         while (!string.IsNullOrEmpty(observaciones.GetCellValueAsString(cantidadfilasobservaciones,1)))
         {
@@ -183,7 +187,7 @@ namespace DepuradorVTVCABA
           texto = "";
           dt.Rows.Add(coluno,coldos,coltres,colcuatro,colcinco,colseis);
         }
-        
+          
         //Se importan los resultados al datatable del log de errores y del resultados, se guardan los cambios en los archivos nuevos, se cierra el libro de excel y se vacian los datos de la tabla
         resultado.ImportDataTable(1,1,dt,false);
         Log.ImportDataTable(1,1,logErrores,false);
@@ -192,16 +196,15 @@ namespace DepuradorVTVCABA
         observaciones.CloseWithoutSaving();
         dt.Dispose();
         logErrores.Dispose();
-        
+          
       }
 
       //TimeSpan ts = sw.Elapsed;
 
       //MessageBox.Show("Al fin termine " + ts,ToString());
       
-      
       MessageBox.Show(@"Procedimiento finalizado");
-      
+        
       Application.Exit();
     }
   }
