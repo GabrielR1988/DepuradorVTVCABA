@@ -1,19 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Diagnostics;
-using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using SpreadsheetLight;
-using DocumentFormat.OpenXml;
-using System.IO.Packaging;
-using System.Runtime;
-using SpreadsheetLight.Drawing;
 
 namespace DepuradorVTVCABA
 {
@@ -49,7 +39,7 @@ namespace DepuradorVTVCABA
       
       while (RevisarCarpeta(pathCarpetaXLSX.Text) == false)
       {
-          MessageBox.Show("La carpeta no contiene archivos compatibles");
+          MessageBox.Show(@"La carpeta no contiene archivos compatibles");
           seleccionarCarpeta = new FolderBrowserDialog();
           seleccionarCarpeta.ShowDialog();
           pathCarpetaXLSX.Text = seleccionarCarpeta.SelectedPath;
@@ -70,7 +60,7 @@ namespace DepuradorVTVCABA
 
     private void btnComenzar_Click(object sender, EventArgs e)
     {
-      string linea = "";
+      string linea;
       string texto = "";
       int contador = 0;
       int cantidadfilasobservaciones = 1;
@@ -99,16 +89,18 @@ namespace DepuradorVTVCABA
       string[] listaDeArchivos = Directory.GetFiles(pathCarpetaXLSX.Text,"*.xlsx");
 
       //Comienzo de la secuencia de depuracion en la que se van a recorrer todos los archivos del vector "listaDeArchivos"
-      for (int i = 0; i < listaDeArchivos.Length; i++)
+      foreach (var archivo in listaDeArchivos)
       {
         //Haciendo uso de la libreria Spreadsheetlight se crean los objetos para recibir y enviar los resultados
-        SLDocument observaciones = new SLDocument(listaDeArchivos[i]);
+        SLDocument observaciones = new SLDocument(archivo);
         SLDocument resultado = new SLDocument();
-        SLDocument Log = new SLDocument();
+        SLDocument log = new SLDocument();
           
         //Spreadsheetlight necesita un objeto de la clase SLStyle para darle formato al documento
-        SLStyle style = new SLStyle();
-        style.FormatCode = "dd/mm/yyyy";
+        SLStyle style = new SLStyle
+        {
+          FormatCode = "dd/mm/yyyy"
+        };
         resultado.SetColumnStyle(4, style);
           
         //Creamos los objetos DataTable que sirven para recibir los datos procesados
@@ -177,7 +169,7 @@ namespace DepuradorVTVCABA
           }
           if (contador == 0 && observaciones.GetCellValueAsString(j,5).Contains("IF-20") == false && observaciones.GetCellValueAsString(j,5) != "-")
           {
-            logErrores.Rows.Add(listaDeArchivos[i] + ", fila " + j + " no encontro coincidencias" + " " + observaciones.GetCellValueAsString(j, 5));
+            logErrores.Rows.Add(archivo + ", fila " + j + " no encontro coincidencias" + " " + observaciones.GetCellValueAsString(j, 5));
           }
           if (contador > 0)
           {
@@ -190,13 +182,12 @@ namespace DepuradorVTVCABA
           
         //Se importan los resultados al datatable del log de errores y del resultados, se guardan los cambios en los archivos nuevos, se cierra el libro de excel y se vacian los datos de la tabla
         resultado.ImportDataTable(1,1,dt,false);
-        Log.ImportDataTable(1,1,logErrores,false);
-        resultado.SaveAs(listaDeArchivos[i].Replace(".xlsx","-out.xlsx"));
-        Log.SaveAs(listaDeArchivos[i].Replace(".xlsx","-err.xlsx"));
+        log.ImportDataTable(1,1,logErrores,false);
+        resultado.SaveAs(archivo.Replace(".xlsx","-out.xlsx"));
+        log.SaveAs(archivo.Replace(".xlsx","-err.xlsx"));
         observaciones.CloseWithoutSaving();
         dt.Dispose();
         logErrores.Dispose();
-          
       }
 
       //TimeSpan ts = sw.Elapsed;

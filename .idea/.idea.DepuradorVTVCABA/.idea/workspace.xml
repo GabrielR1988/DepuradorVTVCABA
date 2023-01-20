@@ -4,10 +4,11 @@
     <projectFile>DepuradorVTVCABA.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f040aec8-83f9-4cb5-9880-8589834e95b9" name="Changes" comment="">
+    <list default="true" id="f040aec8-83f9-4cb5-9880-8589834e95b9" name="Changes" comment="Solucion de bugs y errores">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DepuradorVTVCABA/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DepuradorVTVCABA/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Form1.Designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Form1.Designer.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Form1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Form1.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Properties/AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Properties/AssemblyInfo.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,11 +68,15 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/df44ae6927edb5de8f1cf63fc3b0b2d1db34120bd36d11a589742f76d6e282/OpenXmlElement.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/e62c276473c3b2b6f1a0bdffab1bfea8b5a9e8375cc8a91ed1d735651e9f85c/OpenXmlCompositeElement.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/fe5d582a8952f67f4a365fa8184595cd1edd01b238e2bf2c28c5335575f22/OpenXmlElement.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://Z:/JetBrains Rider 2022.3.1/Repositorio/DepuradorVTVCABA/Form1.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectId" id="2JnSWSiLr19no42tox0mDU8x5PX" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -80,25 +85,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "settings.editor.selected.configurable": "ReSpellerSettingsId",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
-      &quot;TEXT&quot;
+  "keyToStringList": {
+    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
+      "TEXT"
     ],
-    &quot;rider.external.source.directories&quot;: [
-      &quot;C:\\Users\\Administrador\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\DecompilerCache&quot;,
-      &quot;C:\\Users\\Administrador\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\SourcesCache&quot;,
-      &quot;C:\\Users\\Administrador\\AppData\\Local\\Symbols\\src&quot;
+    "rider.external.source.directories": [
+      "C:\\Users\\Administrador\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\DecompilerCache",
+      "C:\\Users\\Administrador\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\SourcesCache",
+      "C:\\Users\\Administrador\\AppData\\Local\\Symbols\\src"
     ]
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="DepuradorVTVCABA" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="" />
@@ -148,7 +154,7 @@
       <workItem from="1673547259403" duration="1206000" />
       <workItem from="1673925228345" duration="20455000" />
       <workItem from="1674223619218" duration="6427000" />
-      <workItem from="1674235955034" duration="4374000" />
+      <workItem from="1674235955034" duration="5463000" />
     </task>
     <task id="LOCAL-00001" summary="Diseño de estructura del Form - Completo">
       <created>1672743534791</created>
@@ -241,7 +247,14 @@
       <option name="project" value="LOCAL" />
       <updated>1674154259094</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Solucion de bugs y errores">
+      <created>1674242008771</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1674242008771</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -287,6 +300,7 @@
     <MESSAGE value="Se termino de ajustar el log de errores para que muestre resultados de interes solamente.&#10;El programa esta completo.&#10;Para la proxima version se modificara el estilo de programacion para que se ajuste a la metodologia asincronica y pueda mejorarse la experiencia del usuario." />
     <MESSAGE value="Se agregan los comentarios del codigo" />
     <MESSAGE value="Se refactorizo el codigo eliminando lineas obsoletas" />
-    <option name="LAST_COMMIT_MESSAGE" value="Se refactorizo el codigo eliminando lineas obsoletas" />
+    <MESSAGE value="Solucion de bugs y errores" />
+    <option name="LAST_COMMIT_MESSAGE" value="Solucion de bugs y errores" />
   </component>
 </project>
