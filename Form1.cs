@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Diagnostics;
 using System.IO;
 using System.Windows.Forms;
+using ExcelDataReader;
 using SpreadsheetLight;
 
 namespace DepuradorVTVCABA
@@ -76,7 +78,7 @@ namespace DepuradorVTVCABA
       Stopwatch sw = new Stopwatch();
       sw.Start();
       */
-        
+
       //Se lee el diccionario y se agregan las linea a la lista "diccionario"
       StreamReader sr = new StreamReader(pathDiccionario.Text);
       while ((linea = sr.ReadLine()) != null)
@@ -188,15 +190,67 @@ namespace DepuradorVTVCABA
         observaciones.CloseWithoutSaving();
         dt.Dispose();
         logErrores.Dispose();
-      }
 
+        FileStream resultadoCsv = File.Open(archivo.Replace(".xlsx", "-out.xlsx"), FileMode.Open, FileAccess.Read);
+        IExcelDataReader excelDataReader = ExcelReaderFactory.CreateOpenXmlReader(resultadoCsv);
+        string csvData = "";
+        int row = 0;
+        while (excelDataReader.Read())
+        {
+          if (row >= 0)
+          {
+            csvData += string.Format("\"{0}\",\"{1}\",\"{2}\",\"{3}\",\"{4}\"",
+              excelDataReader.GetValue(0),
+              excelDataReader.GetValue(1),
+              excelDataReader.GetValue(2),
+              excelDataReader.GetValue(3),
+              excelDataReader.GetValue(4));
+          }
+          
+          csvData += "\n";
+          row++;
+        }
+
+        StreamWriter csv = new StreamWriter(archivo.Replace(".xlsx", "-out.csv"), false);
+        csv.Write(csvData);
+        csv.Close();
+        resultadoCsv.Close();
+        excelDataReader.Close();
+
+        FileStream logCsv = File.Open(archivo.Replace(".xlsx", "-err.xlsx"), FileMode.Open, FileAccess.Read);
+        IExcelDataReader logexcelDataReader = ExcelReaderFactory.CreateOpenXmlReader(logCsv);
+        string logdata = "";
+        int logrow = 0;
+        while (logexcelDataReader.Read())
+        {
+          if (logrow >= 0)
+          {
+            logdata += string.Format("\"{0}\"",
+              logexcelDataReader.GetValue(0));
+          }
+
+          logdata += "\n";
+          logrow++;
+
+        }
+
+        StreamWriter logcsv1 = new StreamWriter(archivo.Replace(".xlsx", "-err.csv"), false);
+        logcsv1.Write(logdata);
+        logcsv1.Close();
+        logCsv.Close();
+        logexcelDataReader.Close();
+
+      }
+      
       //TimeSpan ts = sw.Elapsed;
 
-      //MessageBox.Show("Al fin termine " + ts,ToString());
-      
+      //MessageBox.Show("Procedimiento finalizado" + ts,ToString());
+
+
       MessageBox.Show(@"Procedimiento finalizado");
         
       Application.Exit();
+      
     }
   }
 }

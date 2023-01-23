@@ -4,11 +4,12 @@
     <projectFile>DepuradorVTVCABA.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f040aec8-83f9-4cb5-9880-8589834e95b9" name="Changes" comment="Solucion de bugs y errores">
+    <list default="true" id="f040aec8-83f9-4cb5-9880-8589834e95b9" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DepuradorVTVCABA/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DepuradorVTVCABA/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App.config" beforeDir="false" afterPath="$PROJECT_DIR$/App.config" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DepuradorVTVCABA.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/DepuradorVTVCABA.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Form1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Form1.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Properties/AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Properties/AssemblyInfo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages.config" beforeDir="false" afterPath="$PROJECT_DIR$/packages.config" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,6 +31,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4c1caf888f5f42a8bf18d55aa7887e0f13d7a0/8b/55e74049/ZipIOModeEnforcingStream.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4c1caf888f5f42a8bf18d55aa7887e0f13d7a0/d1/cca7e6df/Package.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/85714c489b214688a3a689021815bce6351990/e3/3ccefedf/DataTable.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/85a420b2bf614d95a7a4ca460c46dcd35a5d48/4e/365d8ca6/Button.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/85a420b2bf614d95a7a4ca460c46dcd35a5d48/75/b312768c/NativeWindow.cs" root0="SKIP_HIGHLIGHTING" />
@@ -42,6 +44,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9b25e913d31d4b8b83ebde8a2012e613286680/03/2944d548/XmlTextReaderImpl.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9b25e913d31d4b8b83ebde8a2012e613286680/51/4e7f4538/NameTable.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9b25e913d31d4b8b83ebde8a2012e613286680/7d/093dd235/MarvinHash.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/edef46c9b2db4b878c98495bfdc516fa568ba8/19/04b5b042/StringBuilder.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/edef46c9b2db4b878c98495bfdc516fa568ba8/1e/6ef6f480/Directory.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/edef46c9b2db4b878c98495bfdc516fa568ba8/1f/1f3ea302/ExecutionContextSwitcher.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/edef46c9b2db4b878c98495bfdc516fa568ba8/2d/3a907c74/RuntimeMethodInfo.cs" root0="SKIP_HIGHLIGHTING" />
@@ -65,10 +68,10 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/8a79161b74d0456f5a549891e6ef881943c8906ede3d6c6da9ccbd269df39/XmlDOMTextWriter.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/9c85ea554accdd259dc9304f74c79936454aa58a6d128b0819f2d2067e31664/OpenXmlNamespaceResolver.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/c5f530b76bcc1030e6655cea72971c2577721c617e0e3a0c7d1b81f54a1392/NamespaceExtensions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/ce389acbc35f773c7020aa99fcb6773b1be4a29a4c4991c55754727d9b34/ExcelDataReader.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/df44ae6927edb5de8f1cf63fc3b0b2d1db34120bd36d11a589742f76d6e282/OpenXmlElement.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/e62c276473c3b2b6f1a0bdffab1bfea8b5a9e8375cc8a91ed1d735651e9f85c/OpenXmlCompositeElement.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/fe5d582a8952f67f4a365fa8184595cd1edd01b238e2bf2c28c5335575f22/OpenXmlElement.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://Z:/JetBrains Rider 2022.3.1/Repositorio/DepuradorVTVCABA/Form1.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -85,26 +88,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "settings.editor.selected.configurable": "ReSpellerSettingsId",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;ReSpellerSettingsId&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
-      "TEXT"
+  &quot;keyToStringList&quot;: {
+    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
+      &quot;TEXT&quot;
     ],
-    "rider.external.source.directories": [
-      "C:\\Users\\Administrador\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\DecompilerCache",
-      "C:\\Users\\Administrador\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\SourcesCache",
-      "C:\\Users\\Administrador\\AppData\\Local\\Symbols\\src"
+    &quot;rider.external.source.directories&quot;: [
+      &quot;C:\\Users\\Administrador\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\DecompilerCache&quot;,
+      &quot;C:\\Users\\Administrador\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\SourcesCache&quot;,
+      &quot;C:\\Users\\Administrador\\AppData\\Local\\Symbols\\src&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="DepuradorVTVCABA" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="" />
@@ -154,7 +157,11 @@
       <workItem from="1673547259403" duration="1206000" />
       <workItem from="1673925228345" duration="20455000" />
       <workItem from="1674223619218" duration="6427000" />
-      <workItem from="1674235955034" duration="5463000" />
+      <workItem from="1674235955034" duration="7606000" />
+      <workItem from="1674246596028" duration="3109000" />
+      <workItem from="1674309019175" duration="1056000" />
+      <workItem from="1674310158283" duration="5255000" />
+      <workItem from="1674417915591" duration="6766000" />
     </task>
     <task id="LOCAL-00001" summary="Diseño de estructura del Form - Completo">
       <created>1672743534791</created>
@@ -254,7 +261,14 @@
       <option name="project" value="LOCAL" />
       <updated>1674242008771</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="-">
+      <created>1674243826588</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1674243826588</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -301,6 +315,7 @@
     <MESSAGE value="Se agregan los comentarios del codigo" />
     <MESSAGE value="Se refactorizo el codigo eliminando lineas obsoletas" />
     <MESSAGE value="Solucion de bugs y errores" />
-    <option name="LAST_COMMIT_MESSAGE" value="Solucion de bugs y errores" />
+    <MESSAGE value="-" />
+    <option name="LAST_COMMIT_MESSAGE" value="-" />
   </component>
 </project>
